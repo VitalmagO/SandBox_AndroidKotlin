@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SandBox_AndroidKotlin</string>
+    <string name="random_heading">Это случайное число между \n0 и %1d</string>
+</resources>
