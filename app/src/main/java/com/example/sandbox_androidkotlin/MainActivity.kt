@@ -6,13 +6,61 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.lifecycle.Lifecycle
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var myObserver: MyObserver
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        myObserver = MyObserver()
+        lifecycle.addObserver(myObserver)
     }
+
+    private fun toastMeState(message: String) {
+        Toast.makeText(this, "${lifecycle.currentState}, $message", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        toastMeState("ON_START")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        toastMeState("ON_RESUME")
+    }
+
+    override fun onPostResume() {
+        super.onPostResume()
+        toastMeState("onPostResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        toastMeState("ON_PAUSE")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        toastMeState("ON_STOP")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        toastMeState("onRestart")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        toastMeState("ON_DESTROY")
+    }
+
+
 
     fun toastMe(view: View) {
         val myToast = Toast.makeText(this, "Hello, I'am Toast!", Toast.LENGTH_SHORT)
