@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main2.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,10 +16,26 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main2)
+
+        button.setOnClickListener {
+            textView2.text = editTextTextPersonName.text
+        }
 
         myObserver = MyObserver()
         lifecycle.addObserver(myObserver)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.run {
+            putString("TEXTVIEW2", textView2.text.toString())
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        textView2.text = savedInstanceState.getString("TEXTVIEW2")
+        super.onRestoreInstanceState(savedInstanceState)
     }
 
     private fun toastMeState(message: String) {
