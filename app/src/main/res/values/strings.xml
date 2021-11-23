@@ -8,4 +8,6 @@
     <string name="name_label">Name</string>
     <string name="profile_avatar_cd">Profile\'s avatar</string>
     <string name="like">Like</string>
+    <string name="viewmodel_profile_bnt_text">ViewModel Activity</string>
+    <string name="viewmodel_profile_tv_text">Использование <b>View Binding</b> из <b>Android Jetpack</b> для демонстрации</string>
 </resources>

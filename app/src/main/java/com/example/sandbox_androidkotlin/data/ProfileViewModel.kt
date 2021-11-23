@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
-class SimpleViewModel : ViewModel() {
+class ProfileViewModel : ViewModel() {
 
     private val _name = MutableLiveData("Vital")
     private val _lastName = MutableLiveData("Mago")
